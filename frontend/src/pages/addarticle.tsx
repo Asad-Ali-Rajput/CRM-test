@@ -20,7 +20,7 @@ const ModalUI = () => {
     const requestBody = {
       title: title,
       content: content,
-      image: selectedImage ? selectedImage.name : "",
+      image: selectedImage ? selectedImage : "",
       status: 'pending'
     };
   
