@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 
 const ArticlePage = () => {
   const router = useRouter();
-  const { state } = router;
-  const { articleId, title, content, status } = router;
+  // const { state } = router;
+  const { articleId, title, content, status } = router.query;
 
   return (
     <div className="w-screen h-screen flex justify-center">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -14,17 +14,18 @@ interface ArticleProps {
 
 const ArticalCard: React.FC<ArticleProps> = ({ articleId, title, author, date, content, status }) => {
   const articleUrl = `/articles/${articleId}`;
+  const [articleData] = useState({
+    articleId: articleId,
+    title: title,
+    content: content,
+    status: status,
+  });
   const router = useRouter();
   const handleCardClick = () => {
     router.push({
-      pathname: "/articles/[articleId]",
-      query:{articleId},
-      state: {
-        articleId: articleId,
-        title: title,
-        content: content,
-        status: status,
-      },
+      pathname: `/articles/${articleId}`,
+      query:articleData,
+      
     });
   };
   return (
